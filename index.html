@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f5ee" />
+    <meta
+      name="description"
+      content="A simple place for students and instructors to track assignments, due dates, submissions, and grades."
+    />
+    <title>Assignment Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <section class="auth-screen" id="authScreen" aria-labelledby="authTitle">
+      <div class="auth-showcase">
+        <a class="brand auth-brand" href="#" aria-label="Assignment tracker home">
+          <span class="brand-mark" aria-hidden="true">a</span>
+          <span>assignments<span class="brand-period">.</span></span>
+        </a>
+        <div class="showcase-copy">
+          <span class="showcase-kicker"><span class="online-dot"></span> Your assignments, all in one place</span>
+          <h1>Stay on top<br />of <span>your work.</span></h1>
+          <p>Track due dates, submit work, review feedback, and keep every assignment moving.</p>
+          <div class="showcase-art" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="art-paper"><span></span><span></span><span></span><i>✳</i></div>
+            <div class="art-book art-book-back"></div><div class="art-book art-book-front"></div>
+            <span class="art-star star-one">✦</span><span class="art-star star-two">✧</span>
+          </div>
+        </div>
+        <div class="showcase-footer"><span>Assignments, made simpler.</span><span>One task at a time <span aria-hidden="true">↗</span></span></div>
+      </div>
+
+      <div class="auth-main">
+        <div class="auth-form-wrap">
+          <div class="auth-mobile-brand">
+            <a class="brand" href="#" aria-label="Assignment tracker home"><span class="brand-mark" aria-hidden="true">a</span><span>assignments<span class="brand-period">.</span></span></a>
+          </div>
+          <div class="auth-heading">
+            <p class="eyebrow" id="authEyebrow">WELCOME BACK</p>
+            <h2 id="authTitle">Good to have you back.</h2>
+            <p id="authSubtitle">Sign in to pick up right where you left off.</p>
+          </div>
+          <div class="auth-tabs" role="tablist" aria-label="Account access">
+            <button class="auth-tab active" id="signInTab" type="button" role="tab" aria-selected="true" data-auth-mode="signin">Sign in</button>
+            <button class="auth-tab" id="createAccountTab" type="button" role="tab" aria-selected="false" data-auth-mode="signup">Create account</button>
+          </div>
+          <form class="auth-form" id="authForm" novalidate></form>
+          <p class="auth-privacy"><span aria-hidden="true">♧</span> Your assignment data stays in this browser.</p>
+          <div class="demo-divider"><span>JUST LOOKING AROUND?</span></div>
+          <div class="demo-actions">
+            <button class="demo-button" type="button" data-demo-role="instructor"><span class="demo-icon instructor-icon" aria-hidden="true">✳</span><span><strong>Preview instructor view</strong><small>Track submissions and grades</small></span><span class="demo-arrow" aria-hidden="true">↗</span></button>
+            <button class="demo-button" type="button" data-demo-role="student"><span class="demo-icon student-icon" aria-hidden="true">✿</span><span><strong>Preview student view</strong><small>Track and submit assignments</small></span><span class="demo-arrow" aria-hidden="true">↗</span></button>
+          </div>
+          <div class="auth-footer">Demo mode: accounts and assignment data stay in this browser. This is not school-managed sign-in.</div>
+        </div>
+      </div>
+      <div class="auth-toast" id="authNotice" role="status" aria-live="polite"></div>
+    </section>
+
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#" aria-label="Assignment tracker home">
+          <span class="brand-mark" aria-hidden="true">a</span>
+          <span>assignments<span class="brand-period">.</span></span>
+        </a>
+
+        <div class="workspace-label">TRACKER</div>
+        <nav class="nav-list" id="mainNav"></nav>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <div class="topbar-context">
+            <button class="back-button" id="backButton" type="button" aria-label="Go to previous page" title="Go to previous page" disabled>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7" /></svg>
+            </button>
+            <div class="breadcrumb"><span>Tracker</span><span aria-hidden="true">/</span><strong id="breadcrumbCurrent">Dashboard</strong></div>
+          </div>
+          <div class="topbar-actions">
+            <div class="profile-chip">
+              <span class="avatar avatar-sage" id="profileAvatar">JD</span>
+              <span class="profile-copy"><strong id="profileName">Jordan Davis</strong><small id="profileRole">Instructor</small></span>
+            </div>
+            <button class="sign-out-button" id="signOutButton" type="button"><span aria-hidden="true">↗</span> Sign out</button>
+          </div>
+        </header>
+
+        <div class="page-content" id="pageContent" aria-live="polite"></div>
+      </main>
+    </div>
+
+    <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+    <dialog class="app-dialog" id="appDialog" aria-labelledby="dialogTitle">
+      <div id="dialogContent"></div>
+    </dialog>
+  </body>
+</html>
